@@ -12,6 +12,10 @@
     justify-content: center;
     }
   
+    .packing-header{
+        width: 100%;
+    }
+    
     .js-pack-list-container{
         display: flex;
         flex-direction: row;
