@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>What to Pack</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+  </head>
+<body>
+  <div class="startContainer">
+ <header>
+   <h1>What To Pack</h1>
+   </header>
+<form class="formContainer">
+  <select name="activity" class="form-item activity">
+  <option value="hiking">Hiking</option>
+  <option value="kayaking">Kayaking</option>
+  <option value="camping">Camping</option>
+  <option value="surfing">Surfing</option>
+    <option value="biking">Biking</option>
+    <option value="rafting">White Water Rafting</option>
+</select>
+  <input type="text" placeholder="City, State" class="city-state form-item">
+  <input type="submit" value="Go" class="submitForm form-item">
+</form>
+<section class="js-forecast-container forecast-hidden">
+  <h2>5 Day Forecast</h2>
+  </section>
+<section class="js-pack-list-container activityList-hidden">
+  <h2>Packing List</h2>
+  </section>
+
+    <div class="js-error"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+  
