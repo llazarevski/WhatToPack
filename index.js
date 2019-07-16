@@ -1,121 +1,633 @@
-const hikingList = ['Backpack', 'Raincover', 'Trekking Poles', 'Headlamp', 'GoPro', 'GPS Satellite Tracker', 'Pocket Knife', 'Waterproof Bag', 'Sleep pad', 'Tent', 'Stove', 'Cooking Set', 'Bear Can', 'Hydration System', 'Water Sterlizer', 'Zip-off Pants', 'Shorts', 'Lightweight Shirts', 'Rain Jacket', 'Waterproof Hiking Boots', 'Sandals', 'Hat', 'Lightweight Gloves', 'Lightweight Jacket', 'Sunglasses', 'Towels', 'Bugspray', 'Sunscreen', 'Socks', 'Toiletries', 'Toilet Paper' ];
+const hikingSummerList = [
+  "Backpack",
+  "Raincover",
+  "Trekking Poles",
+  "Headlamp",
+  "GoPro",
+  "GPS Satellite Tracker",
+  "Pocket Knife",
+  "Waterproof Bag",
+  "Sleep pad",
+  "Tent",
+  "Stove",
+  "Cooking Set",
+  "Bear Can",
+  "Hydration System",
+  "Water Sterlizer",
+  "Zip-off Pants",
+  "Shorts",
+  "Lightweight Shirts",
+  "Rain Jacket",
+  "Waterproof Hiking Boots",
+  "Sandals",
+  "Hat",
+  "Lightweight Gloves",
+  "Lightweight Jacket",
+  "Sunglasses",
+  "Towels",
+  "Bugspray",
+  "Sunscreen",
+  "Socks",
+  "Toiletries",
+  "Toilet Paper",
+  "Map",
+  "Compass",
+  "First Aid Kit",
+  "Headlamp with Batteries"
+];
+const hikingWinterList = [
+  "Backpack",
+  "Raincover",
+  "Trekking Poles",
+  "Headlamp",
+  "GoPro",
+  "GPS Satellite Tracker",
+  "Pocket Knife",
+  "Waterproof Bag",
+  "Sleep pad",
+  "Tent",
+  "Stove",
+  "Cooking Set",
+  "Bear Can",
+  "Hydration System",
+  "Water Sterlizer",
+  "Zip-off Pants",
+  "Shorts",
+  "Lightweight Shirts",
+  "Rain Jacket",
+  "Waterproof Hiking Boots",
+  "Sandals",
+  "Hat",
+  "Lightweight Gloves",
+  "Lightweight Jacket",
+  "Sunglasses",
+  "Towels",
+  "Bugspray",
+  "Sunscreen",
+  "Socks",
+  "Toiletries",
+  "Toilet Paper",
+  "Warm Socks",
+  "Insulated Hiking Boots",
+  "High Gaiters",
+  "Heavy Wool Hat",
+  "Waterproof Gloves",
+  "Insulated Coat with Hood",
+  "Hard Shell Pants",
+  "Fleece Vest",
+  "Fleece Jacket",
+  "Long Underwear",
+  "Spare Clothing",
+  "Map",
+  "Compass",
+  "First Ait Kit",
+  "Headlamp with Batteries",
+  "Microspikes",
+  "Snowshoes",
+  "Face Mask"
+];
+const surfingList = [
+  "Surfboards",
+  "Travel Bag",
+  "Wax",
+  "Fins",
+  "Leashes",
+  "Wetsuit",
+  "Rashguard",
+  "Boardshorts",
+  "T-shirts",
+  "Sunglasses",
+  "Hat",
+  "Towels",
+  "Backpack",
+  "Waterproof Watch",
+  "Sunscreen",
+  "Vaseline",
+  "Sandals",
+  "Water Bottle",
+  "Small First Aid Kit",
+  "Go-Pro",
+  "Bathing Suits"
+];
+const bikingSummerList = [
+  "Rearlight",
+  "Fenders",
+  "Front and Rear Rack",
+  "PAnniers",
+  "Helmet",
+  "Lightweight Jacket",
+  "Watch",
+  "Road ID",
+  "Bicycle Shoes",
+  "Pant Leg Protectors",
+  "Water Bottles",
+  "Tent",
+  "Toiletry Kit",
+  "T-shirts",
+  "Sweatpants",
+  "Clothes",
+  "Sunglasses",
+  "Knife",
+  "Patch Kit",
+  "Flashlight",
+  "Tire Levers",
+  "Bungee Cord",
+  "Spork",
+  "Food",
+  "Cable Lock and Key",
+  "Pedal Wrench",
+  "Shorts",
+  "Sandals"
+];
+const bikingWinterList = [
+  "Rearlight",
+  "Fenders",
+  "Front and Rear Rack",
+  "PAnniers",
+  "Helmet",
+  "Lightweight Jacket",
+  "Watch",
+  "Road ID",
+  "Bicycle Shoes",
+  "Pant Leg Protectors",
+  "Water Bottles",
+  "Tent",
+  "Toiletry Kit",
+  "T-shirts",
+  "Sweatpants",
+  "Clothes",
+  "Sunglasses",
+  "Knife",
+  "Patch Kit",
+  "Flashlight",
+  "Tire Levers",
+  "Bungee Cord",
+  "Spork",
+  "Food",
+  "Cable Lock and Key",
+  "Pedal Wrench",
+  "Snow Jacket",
+  "Ski Pants",
+  "Ski Gloves",
+  "Ski Goggles",
+  "Arm Warmers",
+  "Heavy Socks",
+  "Heavy Hat",
+  "Face Mask",
+  "Long Underwear"
+];
+const campingWinterList = [
+  "Map",
+  "Compass",
+  "GPS",
+  "Sunscreen",
+  "Sunglasses",
+  "Lip Balm",
+  "HeadLamp with Batteries",
+  "First Ait Kit",
+  "Matches and Lighter",
+  "Fire Starter",
+  "Waterproof Container",
+  "Knife/MultiTool",
+  "Stove Kit",
+  "Food",
+  "Hydrations System",
+  "Water Filter",
+  "Tent",
+  "Tarp",
+  "Reflective Blanket",
+  "Packable Lantern",
+  "Sleeping Bag",
+  "Cookset",
+  "Blankets",
+  "Food Storage Containers",
+  "Pot Grabber",
+  "Playing Cards",
+  "Clothing",
+  "Toiletry Kit",
+  "Bug Spray",
+  "Hand Sanitizer",
+  "Folding Chairs",
+  "Heavy Coat",
+  "Fleece Vest/Jacket",
+  "Heavy Pants",
+  "Heavy Hat",
+  "Gloves",
+  "Trekking Poles",
+  "Sleeping Bag Liners",
+  "Gloves",
+  "Hand Warmers",
+  "Insulated Boots",
+  "Heavy Socks"
+];
+const campingSummerList = [
+  "Map",
+  "Compass",
+  "GPS",
+  "Sunscreen",
+  "Sunglasses",
+  "Lip Balm",
+  "HeadLamp with Batteries",
+  "First Ait Kit",
+  "Matches and Lighter",
+  "Fire Starter",
+  "Waterproof Container",
+  "Knife/MultiTool",
+  "Stove Kit",
+  "Food",
+  "Hydrations System",
+  "Water Filter",
+  "Tent",
+  "Tarp",
+  "Reflective Blanket",
+  "Packable Lantern",
+  "Sleeping Bag",
+  "Cookset",
+  "Blankets",
+  "Food Storage Containers",
+  "Pot Grabber",
+  "Playing Cards",
+  "Clothing",
+  "Toiletry Kit",
+  "Bug Spray",
+  "Hand Sanitizer",
+  "Folding Chairs",
+  "Bathing Suits",
+  "Lightweight Gloves",
+  "Sandals",
+  "Walking Shoes",
+  "Lightweight Hat",
+  "Lightweight Rainjacket"
+];
+const raftingSummerList = [
+  "Clothes",
+  "Dry Bag",
+  "Food",
+  "Toiletries",
+  "Flashlight",
+  "Headlamp with Batteries",
+  "Playing Cards",
+  "Extra Bag for Wet Clothes",
+  "Duct Tape",
+  "Bandana",
+  "Bug Spray",
+  "Hand Sanitizer",
+  "Towel",
+  "Bathing Suit",
+  "Synthetic Shirt",
+  "Sneakers",
+  "Sandalas with Straps",
+  "Hat",
+  "Sunglasses with strap",
+  "Water Bottles",
+  "Sunscreen",
+  "River Shoes"
+];
+const raftingWinterList = [
+  "Clothes",
+  "Dry Bag",
+  "Food",
+  "Toiletries",
+  "Flashlight",
+  "Headlamp with Batteries",
+  "Playing Cards",
+  "Extra Bag for Wet Clothes",
+  "Duct Tape",
+  "Bandana",
+  "Bug Spray",
+  "Hand Sanitizer",
+  "Towel",
+  "Sunglasses with strap",
+  "Water Bottles",
+  "Sunscreen",
+  "Windproof/Waterproof Jacket",
+  "Warm Hat",
+  "Synthetic/Wool Hat",
+  "Synthetic/Wool Long-Sleeved Shirts",
+  "Synthetic/Wool Long Underwear",
+  "Windproof/Waterproof Pants",
+  "Wetsuit"
+];
+const kayakingSummerList = [
+  "Kayak",
+  "Paddle",
+  "Personal Floatation Device",
+  "Bilge Pump",
+  "Dry Bag",
+  "Headlamp with Batteries",
+  "Whistle",
+  "Paddle Float",
+  "Paddling Knife",
+  "Towline",
+  "Map in Waterproof Case",
+  "Watch",
+  "Weather Radio",
+  "Float Bag",
+  "Paddle Leash",
+  "Compass",
+  "Large Sponge",
+  "Emergency Flares",
+  "GPS",
+  "2-way Radios",
+  "Sunglasses",
+  "Sunscreen",
+  "Food",
+  "Bug Spray",
+  "Bungee Cords",
+  "Baling Wire",
+  "Replacement Rudder Parts",
+  "Multi-tool",
+  "Static Deck Line",
+  "Sealant",
+  "Water Treatment",
+  "Toilet Paper",
+  "Hand Sanitizer",
+  "Lip Balm",
+  "Water Bottles",
+  "Matches/Fire Starter",
+  "Tent",
+  "Swimwear",
+  "Rashguard",
+  "Neoprene Shoes",
+  "Hat",
+  "Cap Retainer Leash",
+  "Bandana/Buff",
+  "Paddling Gloves",
+  "Lightweight Jacket",
+  "Rain Jacket",
+  "Sandals"
+];
+const kayakingWinterList = [
+  "Kayak",
+  "Paddle",
+  "Personal Floatation Device",
+  "Bilge Pump",
+  "Dry Bag",
+  "Headlamp with Batteries",
+  "Whistle",
+  "Paddle Float",
+  "Paddling Knife",
+  "Towline",
+  "Map in Waterproof Case",
+  "Watch",
+  "Weather Radio",
+  "Float Bag",
+  "Paddle Leash",
+  "Compass",
+  "Large Sponge",
+  "Emergency Flares",
+  "GPS",
+  "2-way Radios",
+  "Sunglasses",
+  "Sunscreen",
+  "Food",
+  "Bug Spray",
+  "Bungee Cords",
+  "Baling Wire",
+  "Replacement Rudder Parts",
+  "Multi-tool",
+  "Static Deck Line",
+  "Sealant",
+  "Water Treatment",
+  "Toilet Paper",
+  "Hand Sanitizer",
+  "Lip Balm",
+  "Water Bottles",
+  "Matches/Fire Starter",
+  "Tent",
+  "Drysuit",
+  "Long Underwear",
+  "Wool Socks",
+  "Pogies",
+  "Wool Synthetic Cap"
+];
 
+const apiKey = "DNXZgQbuT1uA7GN9cfmNGyZ1NlK5jr1X";
+const locationBaseUrl =
+      "https://dataservice.accuweather.com/locations/v1/cities/search";
+const forecastBaseUrl =
+      "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
-
-const apiKey ="DNXZgQbuT1uA7GN9cfmNGyZ1NlK5jr1X"; 
-const locationBaseUrl = 'https://dataservice.accuweather.com/locations/v1/cities/search';
-const forecastBaseUrl = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
-
-
-
-function displayForecast(forecastResponseJson){
-  console.log(forecastResponseJson);
-for (let i=0; i < forecastResponseJson.DailyForecasts.length; i++){
-  const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
-  const maxTemp = `${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}`;
-  const minTemp = `${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}`;
-  console.log(summary);
-  console.log(maxTemp);
-  console.log(minTemp);
-  $('.js-forecast-container').removeClass('forecast-hidden');
-$(".js-forecast-container").append(`<div class='js-dailyWeather'>
-<div class="day${forecastResponseJson.DailyForecasts[i]}-weather">
-${forecastResponseJson.DailyForecasts[i].Date}
-${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}
-${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}
-${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}
-</div>
-  </div>` );
-};
-};
-
-
-function getForecastParams(forecastParams){
-  const forecastQueryItems = Object.keys(forecastParams)
-  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(forecastParams[key])}`)
-  return forecastQueryItems.join('&');
-  console.log(forecastQueryItems);
-};
-
-function getForecast(responseJson){
-const locationKey = `${responseJson[0].Key}`; 
-console.log(locationKey);
-let forecastParams = {
- apikey: apiKey,
- details: true
-}; 
-const forecastString = getForecastParams(forecastParams)
-const forecastUrl = forecastBaseUrl + locationKey + "?" + forecastString;
-console.log(forecastUrl);
-fetch(forecastUrl)
-.then(forecastResponse => {
-  if(forecastResponse.ok){
-    return forecastResponse.json();
+function getActivityList(lowestTemp) {
+  let activity = $(".activity").val();
+  console.log(activity);
+  $(".js-pack-list-container").empty();
+  $(".js-activityList-header").empty();
+  $(".js-activityList-header").removeClass("header-hidden");
+  $(".js-activityList-header").append(`<h2>Packing List</h2>`);
+  $(".js-pack-list-container").removeClass("activityList-hidden");
+  if (activity === "hiking" && lowestTemp >= 60) {
+    for (let i = 0; i < hikingSummerList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${hikingSummerList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "hiking" && lowestTemp < 60) {
+    for (let i = 0; i < hikingWinterList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${hikingWinterList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "kayaking" && lowestTemp >= 60) {
+    for (let i = 0; i < kayakingSummerList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${kayakingSummerList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "kayaking" && lowestTemp < 60) {
+    for (let i = 0; i < kayakingWinterList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${kayakingWinterList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "camping" && lowestTemp >= 60) {
+    for (let i = 0; i < campingSummerList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${campingSummerList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "camping" && lowestTemp < 60) {
+    for (let i = 0; i < campingWinterList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${campingWinterList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "surfing") {
+    for (let i = 0; i < surfingList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${surfingList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "biking" && lowestTemp >= 60) {
+    for (let i = 0; i < bikingSummerList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${bikingSummerList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "biking" && lowestTemp < 60) {
+    for (let i = 0; i < bikingWinterList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${bikingWinterList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "rafting" && lowestTemp >= 60) {
+    for (let i = 0; i < raftingSummerList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${raftingSummerList[i]}</span>
+</label>`);
+    }
+  } else if (activity === "rafting" && lowestTemp < 60) {
+    for (let i = 0; i < raftingWinterList.length; i++) {
+      $(".js-pack-list-container").append(`<label class='js-toDoList'>
+<input type='checkbox'>
+<span class='checkmark'> ${raftingWinterList[i]}</span>
+</label>`);
+    }
   }
-  throw new forecastError(forecastResponse.statustext);
-})
-.then(forecastResponseJson => displayForecast(forecastResponseJson))
-.catch(err => {
-    $('.js-error').text(`Something went wrong: ${err.message}`)
+  watchForm();
+}
+
+function getLowestTemp(forecastResponseJson) {
+  let lowestTempArray = [];
+  for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
+    lowestTempArray.push(
+      `${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}`
+    );
+    console.log(lowestTempArray);
+  }
+  let lowestTemp = lowestTempArray[0];
+  for (var i = 0; i < lowestTempArray.length; i++) {
+    if (lowestTempArray[i] < lowestTemp) {
+      lowestTemp = lowestTempArray[i];
+    }
+  }
+  console.log(lowestTemp);
+  getActivityList(lowestTemp);
+}
+
+function displayForecast(forecastResponseJson) {
+  console.log(forecastResponseJson);
+  $(".js-forecast-container").empty();
+  $(".js-forecast-header").empty();
+  $(".js-forecast-header").removeClass("header-hidden");
+  $(".js-forecast-header").append(`<h2>5 Day Forecast</h2>`);
+  for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
+    const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
+    const maxTemp = `${
+    forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
+    }`;
+    const minTemp = `${
+    forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
+    }`;
+    console.log(summary);
+    console.log(maxTemp);
+    console.log(minTemp);
+    $(".js-forecast-container").removeClass("forecast-hidden");
+    $(".js-forecast-container").append(`<div class='js-dailyWeather'>
+<div class="date">${forecastResponseJson.DailyForecasts[i].Date}</div>
+<div class= "summary">${
+                                       forecastResponseJson.DailyForecasts[i].Day.LongPhrase
+                                       }</div>
+<div class="temp-high">${
+                                       forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
+                                       }</div>
+<div class="temp-low">${
+                                       forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
+                                       }</div>
+</div>
+</div>`);
+  }
+  getLowestTemp(forecastResponseJson);
+}
+
+function getForecastParams(forecastParams) {
+  const forecastQueryItems = Object.keys(forecastParams).map(
+    key =>
+    `${encodeURIComponent(key)}=${encodeURIComponent(forecastParams[key])}`
+  );
+  return forecastQueryItems.join("&");
+  console.log(forecastQueryItems);
+}
+
+function getForecast(responseJson) {
+  const locationKey = `${responseJson[0].Key}`;
+  console.log(locationKey);
+  let forecastParams = {
+    apikey: apiKey,
+    details: true
+  };
+  const forecastString = getForecastParams(forecastParams);
+  const forecastUrl = forecastBaseUrl + locationKey + "?" + forecastString;
+  console.log(forecastUrl);
+  fetch(forecastUrl)
+    .then(forecastResponse => {
+    if (forecastResponse.ok) {
+      return forecastResponse.json();
+    }
+    throw new forecastError(forecastResponse.statustext);
+  })
+    .then(forecastResponseJson => displayForecast(forecastResponseJson))
+    .catch(err => {
+    $(".js-error").text(`Something went wrong: ${err.message}`);
   });
-};
+}
 
-function getLocationParams(locationParams){
-  const queryItems = Object.keys(locationParams)
-  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(locationParams[key])}`)
-  return queryItems.join('&');
-  console.log(queryItems)
-};
+function getLocationParams(locationParams) {
+  const queryItems = Object.keys(locationParams).map(
+    key =>
+    `${encodeURIComponent(key)}=${encodeURIComponent(locationParams[key])}`
+  );
+  return queryItems.join("&");
+  console.log(queryItems);
+}
 
-function getLocationKey(city, state){
+function getLocationKey(city, state) {
   let locationParams = {
     apikey: apiKey,
     q: city,
-    alias: state,
-};
+    alias: state
+  };
   const queryString = getLocationParams(locationParams);
-  const locationUrl = locationBaseUrl + '?' + queryString;
+  const locationUrl = locationBaseUrl + "?" + queryString;
   console.log(locationUrl);
-    fetch(locationUrl)
-  .then(response => {
-  if (response.ok){
-    return response.json();
-  }
+  fetch(locationUrl)
+    .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
     throw new Error(response.statustext);
   })
-  .then(responseJson => getForecast(responseJson))
-  .catch(err => {
-    $('.js-error').text(`Something went wrong: ${err.message}`)
+    .then(responseJson => getForecast(responseJson))
+    .catch(err => {
+    $(".js-error").text(`Something went wrong: ${err.message}`);
   });
-};
+}
 
-function getActivityList(activity){
-if (activity === "hiking"){
- $('.js-pack-list-container').removeClass('activityList-hidden');
- for (let i=0; i < hikingList.length; i++){
-  $(".js-pack-list-container").append(`<label class='js-toDoList'>
-  <input type='checkbox' checked='checked'>
-  <span class='checkmark'> ${hikingList[i]}</span>
-</label>`)};
-} 
-};
-
-
-function watchForm (){
-  $('.formContainer').submit(event => {
+function watchForm() {
+  $(".formContainer").submit(event => {
     event.preventDefault();
-    const activity = $('.activity').val();
-    const cityState = $('.city-state').val();
-    console.log(activity, cityState);
+    const cityState = $(".city-state").val();
+    console.log(cityState);
     const cityStateArray = cityState.split(", ");
     const city = cityStateArray[0];
     const state = cityStateArray[1];
     console.log(city);
     console.log(state);
     getLocationKey(city, state);
-    getActivityList(activity);
-      $('.startContainer').addClass("startContainerAfterSubmit").removeClass('startContainer');
+    $(".startContainer")
+      .addClass("startContainerAfterSubmit")
+      .removeClass("startContainer");
   });
-};
+}
 
 $(watchForm);
