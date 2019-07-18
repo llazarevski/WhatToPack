@@ -408,7 +408,26 @@ const locationBaseUrl =
 const forecastBaseUrl =
       "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
-function getActivityList(lowestTemp) {
+      function addToDo (){
+        const toDo = `<form>
+            Add Item To Pack List:<br>
+            <input type="text" name="js-addToDo" class="js-addToDo">
+            <input type="submit" value="Add" class="js-add-button">
+          </form>`
+        $('.startContainerAfterSubmit').append(toDo);
+        $('.startContainerAfterSubmit').submit('.js-add-button', event => {
+            event.preventDefault();
+            let toDoValue = $('.js-addToDo').val();
+            console.log(toDoValue);
+            $(".js-pack-list-container").append(`<label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${toDoValue} </span>
+        </label>`);
+        $('.js-addToDo').val('');
+        });
+        };
+
+      function getActivityList(lowestTemp) {
   let activity = $(".activity").val();
   console.log(activity);
   $(".js-pack-list-container").empty();
@@ -494,6 +513,7 @@ function getActivityList(lowestTemp) {
 </label>`);
     }
   }
+  addToDo();
   watchForm();
 }
 
@@ -534,16 +554,11 @@ function displayForecast(forecastResponseJson) {
     console.log(minTemp);
     $(".js-forecast-container").removeClass("forecast-hidden");
     $(".js-forecast-container").append(`<div class='js-dailyWeather'>
-<div class="date">${forecastResponseJson.DailyForecasts[i].Date}</div>
-<div class= "summary">${
-                                       forecastResponseJson.DailyForecasts[i].Day.LongPhrase
-                                       }</div>
-<div class="temp-high">${
-                                       forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
-                                       }</div>
-<div class="temp-low">${
-                                       forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
-                                       }</div>
+<div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div>
+<div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
+<div class="temp-high">Max:${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°</div>
+<div class="temp-low">Min:${
+ forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°</div>
 </div>
 </div>`);
   }
