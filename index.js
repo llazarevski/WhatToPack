@@ -113,7 +113,7 @@ const bikingSummerList = [
   "Rearlight",
   "Fenders",
   "Front and Rear Rack",
-  "PAnniers",
+  "Panniers",
   "Helmet",
   "Lightweight Jacket",
   "Watch",
@@ -143,7 +143,7 @@ const bikingWinterList = [
   "Rearlight",
   "Fenders",
   "Front and Rear Rack",
-  "PAnniers",
+  "Panniers",
   "Helmet",
   "Lightweight Jacket",
   "Watch",
@@ -408,114 +408,118 @@ const locationBaseUrl =
 const forecastBaseUrl =
       "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
-      function addToDo (){
-        const toDo = `<form>
-            Add Item To Pack List:<br>
-            <input type="text" name="js-addToDo" class="js-addToDo">
-            <input type="submit" value="Add" class="js-add-button">
-          </form>`
-        $('.startContainerAfterSubmit').append(toDo);
-        $('.startContainerAfterSubmit').submit('.js-add-button', event => {
-            event.preventDefault();
-            let toDoValue = $('.js-addToDo').val();
-            console.log(toDoValue);
-            $(".js-pack-list-container").append(`<label class='js-toDoList'>
-        <input type='checkbox'>
-        <span class='checkmark'> ${toDoValue} </span>
-        </label>`);
-        $('.js-addToDo').val('');
-        });
-        };
+function addPackText (){
+  $('.js-toDoContainer').empty();
+  const toDo = `<section class="js-toDoContainer"><form>
+    Add Item To Pack List:<br>
+    <input type="text" name="js-addToDo" class="js-addToDo">
+    <input type="submit" value="Add" class="js-add-button">
+    </form></section>`
+  $('.startContainerAfterSubmit').append(toDo);
+};
 
-      function getActivityList(lowestTemp) {
+function submitAddToDo (){
+        $(document).delegate('.startContainerAfterSubmit .js-toDoContainer form', 'submit', (event) => {
+          event.preventDefault();
+          let toDoValue = $('.js-addToDo').val();
+          console.log(toDoValue);
+          $('.js-addToDo').val('');
+          $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+            <input type='checkbox'>
+            <span class='checkmark'> ${toDoValue} </span>
+          </label></li>`);
+        });
+      }; 
+
+function getActivityList(lowestTemp) {
   let activity = $(".activity").val();
   console.log(activity);
   $(".js-pack-list-container").empty();
   $(".js-activityList-header").empty();
   $(".js-activityList-header").removeClass("header-hidden");
   $(".js-activityList-header").append(`<h2>Packing List</h2>`);
-  $(".js-pack-list-container").removeClass("activityList-hidden");
+  $(".packList").removeClass("activityList-hidden");
   if (activity === "hiking" && lowestTemp >= 60) {
     for (let i = 0; i < hikingSummerList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${hikingSummerList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${hikingSummerList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "hiking" && lowestTemp < 60) {
     for (let i = 0; i < hikingWinterList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${hikingWinterList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${hikingWinterList[i]}</span>
+        </label></li>`);
     }
-  } else if (activity === "kayaking" && lowestTemp >= 60) {
+  }  else if (activity === "kayaking" && lowestTemp >= 60) {
     for (let i = 0; i < kayakingSummerList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${kayakingSummerList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${kayakingSummerList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "kayaking" && lowestTemp < 60) {
     for (let i = 0; i < kayakingWinterList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${kayakingWinterList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${kayakingWinterList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "camping" && lowestTemp >= 60) {
     for (let i = 0; i < campingSummerList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${campingSummerList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${campingSummerList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "camping" && lowestTemp < 60) {
     for (let i = 0; i < campingWinterList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${campingWinterList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${campingWinterList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "surfing") {
     for (let i = 0; i < surfingList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${surfingList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${surfingList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "biking" && lowestTemp >= 60) {
     for (let i = 0; i < bikingSummerList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${bikingSummerList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${bikingSummerList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "biking" && lowestTemp < 60) {
     for (let i = 0; i < bikingWinterList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${bikingWinterList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${bikingWinterList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "rafting" && lowestTemp >= 60) {
     for (let i = 0; i < raftingSummerList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${raftingSummerList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${raftingSummerList[i]}</span>
+        </label></li>`);
     }
   } else if (activity === "rafting" && lowestTemp < 60) {
     for (let i = 0; i < raftingWinterList.length; i++) {
-      $(".js-pack-list-container").append(`<label class='js-toDoList'>
-<input type='checkbox'>
-<span class='checkmark'> ${raftingWinterList[i]}</span>
-</label>`);
+      $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+        <input type='checkbox'>
+        <span class='checkmark'> ${raftingWinterList[i]}</span>
+        </label></li>`);
     }
-  }
-  addToDo();
+  };
+  addPackText();
   watchForm();
-}
+};
 
 function getLowestTemp(forecastResponseJson) {
   let lowestTempArray = [];
@@ -533,7 +537,7 @@ function getLowestTemp(forecastResponseJson) {
   }
   console.log(lowestTemp);
   getActivityList(lowestTemp);
-}
+};
 
 function displayForecast(forecastResponseJson) {
   console.log(forecastResponseJson);
@@ -544,26 +548,24 @@ function displayForecast(forecastResponseJson) {
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
-    forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
+      forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
     }`;
     const minTemp = `${
-    forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
+      forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
     }`;
     console.log(summary);
     console.log(maxTemp);
     console.log(minTemp);
     $(".js-forecast-container").removeClass("forecast-hidden");
     $(".js-forecast-container").append(`<div class='js-dailyWeather'>
-<div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div>
-<div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
-<div class="temp-high">Max:${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°</div>
-<div class="temp-low">Min:${
- forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°</div>
-</div>
-</div>`);
+      <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div>
+      <div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
+      <div class="temp-high">Max:${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°</div>
+      <div class="temp-low">Min:${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°</div>
+    </div>`);
   }
   getLowestTemp(forecastResponseJson);
-}
+};
 
 function getForecastParams(forecastParams) {
   const forecastQueryItems = Object.keys(forecastParams).map(
@@ -572,7 +574,7 @@ function getForecastParams(forecastParams) {
   );
   return forecastQueryItems.join("&");
   console.log(forecastQueryItems);
-}
+};
 
 function getForecast(responseJson) {
   const locationKey = `${responseJson[0].Key}`;
@@ -595,7 +597,7 @@ function getForecast(responseJson) {
     .catch(err => {
     $(".js-error").text(`Something went wrong: ${err.message}`);
   });
-}
+};
 
 function getLocationParams(locationParams) {
   const queryItems = Object.keys(locationParams).map(
@@ -604,7 +606,7 @@ function getLocationParams(locationParams) {
   );
   return queryItems.join("&");
   console.log(queryItems);
-}
+};
 
 function getLocationKey(city, state) {
   let locationParams = {
@@ -626,7 +628,7 @@ function getLocationKey(city, state) {
     .catch(err => {
     $(".js-error").text(`Something went wrong: ${err.message}`);
   });
-}
+};
 
 function watchForm() {
   $(".formContainer").submit(event => {
@@ -639,10 +641,9 @@ function watchForm() {
     console.log(city);
     console.log(state);
     getLocationKey(city, state);
-    $(".startContainer")
-      .addClass("startContainerAfterSubmit")
-      .removeClass("startContainer");
+    $(".startContainer").addClass("startContainerAfterSubmit").removeClass("startContainer");
   });
-}
+};
 
 $(watchForm);
+$(submitAddToDo);

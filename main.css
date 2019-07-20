@@ -12,6 +12,10 @@ header {
   justify-content: center;
 }
 
+li {
+  list-style-type: none;
+}
+
 .activityList-hidden {
   display: none;
 }
