@@ -415,11 +415,11 @@ function addPackText (){
     <input type="text" name="js-addToDo" class="js-addToDo">
     <input type="submit" value="Add" class="js-add-button">
     </form></section>`
-  $('.startContainerAfterSubmit').append(toDo);
+  $('.packList').append(toDo);
 };
 
 function submitAddToDo (){
-        $(document).delegate('.startContainerAfterSubmit .js-toDoContainer form', 'submit', (event) => {
+        $(document).delegate('.packList .js-toDoContainer form', 'submit', (event) => {
           event.preventDefault();
           let toDoValue = $('.js-addToDo').val();
           console.log(toDoValue);
@@ -544,7 +544,7 @@ function displayForecast(forecastResponseJson) {
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
-  $(".js-forecast-header").append(`<h2>5 Day Forecast</h2>`);
+  $(".js-forecast-header").append(`<h2>5 Day Forecast / $(cityState)</h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
@@ -558,10 +558,13 @@ function displayForecast(forecastResponseJson) {
     console.log(minTemp);
     $(".js-forecast-container").removeClass("forecast-hidden");
     $(".js-forecast-container").append(`<div class='js-dailyWeather'>
-      <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div>
+      <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div><br>
       <div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
-      <div class="temp-high">Max:${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°</div>
-      <div class="temp-low">Min:${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°</div>
+      <div class="temp"><ul>
+        <li>Max:${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°F</li>
+        <li>Min:${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°F</li>
+      </ul>
+      </div>
     </div>`);
   }
   getLowestTemp(forecastResponseJson);
@@ -642,6 +645,7 @@ function watchForm() {
     console.log(state);
     getLocationKey(city, state);
     $(".startContainer").addClass("startContainerAfterSubmit").removeClass("startContainer");
+    $(".hero").addClass("startContainerAfterSubmit");
   });
 };
 

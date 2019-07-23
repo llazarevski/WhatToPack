@@ -5,25 +5,29 @@
   <meta name="viewport" content="width=device-width">
   <title>What to Pack</title>
   <link href="main.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="startContainer">
-    <header>
+    <header class="hero">
+        <img src="Pictures/landscape.png" alt="icon" class="icon">
       <h1>What To Pack</h1>
     </header>
     <form class="formContainer">
       <select name="activity" class="form-item activity">
-        <option value="hiking">Hiking</option>
-        <option value="kayaking">Kayaking</option>
-        <option value="camping">Camping</option>
-        <option value="surfing">Surfing</option>
-        <option value="biking">Biking</option>
-        <option value="rafting">Rafting</option>
+        <option value="hiking">hiking</option>
+        <option value="kayaking">kayaking</option>
+        <option value="camping">camping</option>
+        <option value="surfing">surfing</option>
+        <option value="biking">biking</option>
+        <option value="rafting">rafting</option>
       </select>
-      <input type="text" placeholder="City, State" class="city-state form-item">
-      <input type="submit" value="Go" class="submitForm form-item">
+      <input type="text" placeholder="city, state" class="city-state form-item" required> 
+      <input type="submit" value="go" class="submitForm form-item">
     </form>
+  </div>
   <header class="js-forecast-header header-hidden"></header>
   <section class="js-forecast-container forecast-hidden">
   </section>
@@ -33,6 +37,10 @@
     </ul>
   </section>
   <div class="js-error"></div>
+  <footer>
+    <div class='footer'>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </div>
+  </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="index.js"></script>
 </body>
