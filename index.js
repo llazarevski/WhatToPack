@@ -539,13 +539,13 @@ function getLowestTemp(forecastResponseJson) {
   getActivityList(lowestTemp);
 };
 
-function displayForecast(forecastResponseJson) {
+function displayForecast(forecastResponseJson, cityState) {
   console.log(forecastResponseJson);
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
   $('.packListBackground').removeClass('header-hidden');
-  $(".js-forecast-header").append(`<h2>5 Day Forecast / $(cityState)</h2>`);
+  $(".js-forecast-header").append(`<h2>5 Day Forecast / ${cityState} </h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
@@ -558,7 +558,7 @@ function displayForecast(forecastResponseJson) {
     console.log(maxTemp);
     console.log(minTemp);
     $(".js-forecast-container").removeClass("forecast-hidden");
-    $(".js-forecast-container").append(`<div class='js-dailyWeather'>
+    $(".js-forecast-container").append(`<div class='js-dailyWeather weather-${forecastResponseJson.DailyForecasts[i]}'>
       <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div><br>
       <div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
       <div class="temp"><ul>
