@@ -407,6 +407,7 @@ const locationBaseUrl =
       "https://dataservice.accuweather.com/locations/v1/cities/search";
 const forecastBaseUrl =
       "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+let cityState='';
 
 function addPackText (){
   $('.js-toDoContainer').empty();
@@ -646,7 +647,7 @@ function updateCSS() {
 function watchForm() {
   $(".formContainer").submit(event => {
     event.preventDefault();
-    const cityState = $(".city-state").val();
+    cityState = $(".city-state").val();
     console.log(cityState);
     const cityStateArray = cityState.split(", ");
     const city = cityStateArray[0];
