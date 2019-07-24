@@ -437,7 +437,7 @@ function getActivityList(lowestTemp) {
   $(".js-pack-list-container").empty();
   $(".js-activityList-header").empty();
   $(".js-activityList-header").removeClass("header-hidden");
-  $(".js-activityList-header").append(`<h2>Packing List</h2>`);
+  $(".js-activityList-header").append(`<img src="Pictures/tent.png" alt="icon" class="icon"> <h2>Packing List</h2>`);
   $(".packList").removeClass("activityList-hidden");
   if (activity === "hiking" && lowestTemp >= 60) {
     for (let i = 0; i < hikingSummerList.length; i++) {
@@ -544,6 +544,7 @@ function displayForecast(forecastResponseJson) {
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
+  $('.packListBackground').removeClass('header-hidden');
   $(".js-forecast-header").append(`<h2>5 Day Forecast / $(cityState)</h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
@@ -561,8 +562,8 @@ function displayForecast(forecastResponseJson) {
       <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div><br>
       <div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
       <div class="temp"><ul>
-        <li>Max:${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°F</li>
-        <li>Min:${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°F</li>
+        <li><span class="bold">Max:</span>${forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value}°F</li>
+        <li><span class="bold">Min:</span>${forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value}°F</li>
       </ul>
       </div>
     </div>`);
@@ -633,6 +634,14 @@ function getLocationKey(city, state) {
   });
 };
 
+function updateCSS() {
+  $(".startContainer").addClass("startContainerAfterSubmit").removeClass("startContainer");
+  $(".hero").addClass("startContainerAfterSubmit");
+  $('h1').addClass('h1AfterSubmit');
+  $('.form-item').addClass('formItemAfterSubmit');
+
+}
+
 function watchForm() {
   $(".formContainer").submit(event => {
     event.preventDefault();
@@ -644,8 +653,7 @@ function watchForm() {
     console.log(city);
     console.log(state);
     getLocationKey(city, state);
-    $(".startContainer").addClass("startContainerAfterSubmit").removeClass("startContainer");
-    $(".hero").addClass("startContainerAfterSubmit");
+    updateCSS();
   });
 };
 

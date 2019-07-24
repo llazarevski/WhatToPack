@@ -16,8 +16,7 @@ body{
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin-top: 200px;
-  padding: 10px;
+  margin-top: 50px;
 }
 
 header {
@@ -27,32 +26,42 @@ header {
 }
 
 .icon{
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   display: inline-block;
+  margin-top: 20px;
 }
 
 h1{
-  font-size: 36px;
+  font-size: 48px;
   color: #102114;
   display: inline-block;
 }
 
 .formContainer{
   display: block;
+  text-align: center;
 }
 
 .form-item{
   border-radius: 50px;
-  border: 1px solid #102114;
   background-color:white;
-  text-align: center;
-  padding: 6px;
+  padding: 2px 5px 2px 5px;
   color:  #102114;
-  margin: 5px;
-  font-family: 'Archivo Narrow', sans-serif;
+  /* margin: 5px; */
+  font-family: 'Tinos', sans-serif;
   font-weight: 400;
   font-size: 16px;
+  border: 0;
+}
+
+.city-state{
+  color:  #102114;
+   
+}
+
+.submitForm{
+ text-align: left;
 }
 
 li {
@@ -73,14 +82,14 @@ li {
   animation-name: moveSubmit;
   animation-duration: 1s;
   display: inline-block;
-  margin: 10px;
+  margin: 10px 0px 0px 10px;
 }
 @keyframes moveSubmit {
   0% {
+
   }
   100% {
     justify-content: flex-start;
-    margin: 10px;
   }
 }
 
@@ -91,9 +100,9 @@ li {
   align-items: stretch;
   flex-wrap: wrap;
   text-align: center;
-  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'Tinos', sans-serif;
   justify-content: center;
-  background-color: rgba(16,33,20, .6);
+  /* background-color: rgba(16,33,20, .6); */
   margin-bottom: 0px;
 }
 
@@ -124,15 +133,35 @@ ul{
   display: none;
 }
 .js-forecast-header{
-  color:white;
+  color: #102114;
+  text-align: center;
+  font-size: 32px;
+
+}
+.packListBackground{
+  background-color: white;
+  margin-top: 20px;
 }
 .js-activityList-header{
-  color:white;
+  color: #102114;
+  text-align: center;
+  background-color: white;
+  font-size: 32px;
+  display: block;
+}
+h2{
+  display: inline-block;
 }
 
-
-.js-pack-list-container{
-  background-color: rgba(16,33,20, .6);
+.packList{
+  background-color:white;
+  color: #102114;
+  font-family: 'Tinos', sans-serif;
+  display: flex;
+  flex-direction: row;
+  flex: wrap;
+  margin: 150px;
+  font-size: 20px;
 }
 
 .footer{
@@ -142,10 +171,29 @@ ul{
   width: 100%;
   color: white;
   font-size: 16px;
-  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'Tinos', sans-serif;
 }
 
 a{
   text-decoration: none;
   color: white;
 }
+
+ .h1AfterSubmit{
+    font-size: 38px;
+ }
+ .formItemAfterSubmit{
+   font-size: 14px;
+ }
+
+ .date{
+   font-weight: 700;
+ }
+
+ .bold{
+   font-weight: 700;
+ }
+ .js-toDoList{
+   padding: 10px;
+   width: 100px;
+ }
