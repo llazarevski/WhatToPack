@@ -407,7 +407,7 @@ const locationBaseUrl =
       "https://dataservice.accuweather.com/locations/v1/cities/search";
 const forecastBaseUrl =
       "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
-let cityState='';
+
 
 function addPackText (){
   $('.js-toDoContainer').empty();
@@ -540,13 +540,15 @@ function getLowestTemp(forecastResponseJson) {
   getActivityList(lowestTemp);
 };
 
-function displayForecast(forecastResponseJson, cityState) {
+function displayForecast(forecastResponseJson, cityUpperCase, state) {
+  formatCityState(cityUpperCase, state);
   console.log(forecastResponseJson);
+  let cityState = $(".city-state").val();
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
   $('.packListBackground').removeClass('header-hidden');
-  $(".js-forecast-header").append(`<h2>5 Day Forecast / ${cityState} </h2>`);
+  $(".js-forecast-header").append(`<h2>5 Day Forecast / ${cityUpperCase}, ${state} </h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
@@ -642,6 +644,16 @@ function updateCSS() {
   $('.form-item').addClass('formItemAfterSubmit');
   $('.footer').addClass('footerAfterSubmit').removeClass('footer');
 
+}
+
+function formatCityState(){
+  let cityState = $(".city-state").val();
+  const cityStateArray = cityState.split(", ");
+  const city = cityStateArray[0];
+  let upperCaseCity = city.charAt(0).toUpperCase() + city.slice(1);
+  let state = cityStateArray[1].toUpperCase();
+  console.log(upperCaseCity);
+  console.log(state);
 }
 
 function watchForm() {
