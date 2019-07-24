@@ -540,15 +540,15 @@ function getLowestTemp(forecastResponseJson) {
   getActivityList(lowestTemp);
 };
 
-function displayForecast(forecastResponseJson, cityUpperCase, state) {
-  formatCityState(cityUpperCase, state);
+function displayForecast(forecastResponseJson) {
+  formatCityState(upperCaseCity, state);
   console.log(forecastResponseJson);
   let cityState = $(".city-state").val();
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
   $('.packListBackground').removeClass('header-hidden');
-  $(".js-forecast-header").append(`<h2>5 Day Forecast / ${cityUpperCase}, ${state} </h2>`);
+  $(".js-forecast-header").append(`<h2>5 Day Forecast / ${upperCaseCity}, ${state} </h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
@@ -648,12 +648,14 @@ function updateCSS() {
 
 function formatCityState(){
   let cityState = $(".city-state").val();
-  const cityStateArray = cityState.split(", ");
-  const city = cityStateArray[0];
+  let cityStateArray = cityState.split(", ");
+  let city = cityStateArray[0];
   let upperCaseCity = city.charAt(0).toUpperCase() + city.slice(1);
   let state = cityStateArray[1].toUpperCase();
   console.log(upperCaseCity);
   console.log(state);
+  return (upperCaseCity, state);
+   
 }
 
 function watchForm() {
@@ -661,9 +663,9 @@ function watchForm() {
     event.preventDefault();
     cityState = $(".city-state").val();
     console.log(cityState);
-    const cityStateArray = cityState.split(", ");
-    const city = cityStateArray[0];
-    const state = cityStateArray[1];
+    let cityStateArray = cityState.split(", ");
+    let city = cityStateArray[0];
+    let state = cityStateArray[1];
     console.log(city);
     console.log(state);
     getLocationKey(city, state);
