@@ -74,6 +74,9 @@ li {
 
 .submitForm{
   width: 50px;
+  background: #102114;
+  color: white;
+  text-align: center;
 }
 
 .startContainerAfterSubmit {
@@ -135,18 +138,17 @@ ul{
 .js-forecast-header{
   color: #102114;
   text-align: center;
-  font-size: 32px;
+  font-size: 26px;
 
 }
 .packListBackground{
-  background-color: white;
+  background:white;
   margin-top: 20px;
 }
 .js-activityList-header{
   color: #102114;
   text-align: center;
-  background-color: white;
-  font-size: 32px;
+  font-size: 26px;
   display: block;
 }
 h2{
@@ -154,14 +156,17 @@ h2{
 }
 
 .packList{
-  background-color:white;
   color: #102114;
   font-family: 'Tinos', sans-serif;
+  margin-left: 70px;
+
+}
+
+.js-pack-list-container{
   display: flex;
   flex-direction: row;
-  flex: wrap;
-  margin: 150px;
-  font-size: 20px;
+  flex-wrap: wrap;
+  font-size: 16px;
 }
 
 .footer{
@@ -194,6 +199,28 @@ a{
    font-weight: 700;
  }
  .js-toDoList{
-   padding: 10px;
-   width: 100px;
+   padding: 5px;
+   width: 250px;
+ }
+ .js-toDoContainer{
+   font-family: 'Tinos', sans-serif; 
+   margin: 10px;
+   margin: 0 auto;
+ }
+ .js-addToDo{
+   border-radius: 50px;
+   border: 1px solid  #102114;
+ }
+ .js-add-button{
+  border-radius: 50px;
+  background-color: #102114;
+  color: white;
+ }
+
+
+ .footerAfterSubmit{
+   position: static;
+   color:white;
+   font-size: 12px;
+   font-family: 'Tinos', sans-serif;
  }
