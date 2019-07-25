@@ -222,3 +222,8 @@ a{
    font-size: 12px;
    font-family: 'Tinos', sans-serif;
  }
+
+ .js-error{
+   color: #c4251a;
+   margin: 10px;
+ }

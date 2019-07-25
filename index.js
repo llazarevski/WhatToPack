@@ -545,15 +545,14 @@ function displayForecast(forecastResponseJson) {
   const cityStateArray = formatCityState(cityState);
   const city = cityStateArray[0];
   const state = cityStateArray[1];
-  
   console.log(forecastResponseJson);
-  let cityState = $(".city-state").val();
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
   $('.packListBackground').removeClass('header-hidden');
   $(".js-forecast-header").append(`<h2>5 Day Forecast / ${city}, ${state} </h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
+    // console.log(i);
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
       forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
@@ -565,7 +564,7 @@ function displayForecast(forecastResponseJson) {
     console.log(maxTemp);
     console.log(minTemp);
     $(".js-forecast-container").removeClass("forecast-hidden");
-    $(".js-forecast-container").append(`<div class='js-dailyWeather weather-${forecastResponseJson.DailyForecasts[i]}'>
+    $(".js-forecast-container").append(`<div class='js-dailyWeather weather-'>
       <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div><br>
       <div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
       <div class="temp"><ul>
