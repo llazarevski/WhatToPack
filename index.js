@@ -552,7 +552,7 @@ function displayForecast(forecastResponseJson) {
   $('.packListBackground').removeClass('header-hidden');
   $(".js-forecast-header").append(`<h2>5 Day Forecast / ${city}, ${state} </h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
-    // console.log(i);
+    const number = `${forecastResponseJson.DailyForecasts[i]}`;
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
       forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
@@ -560,6 +560,7 @@ function displayForecast(forecastResponseJson) {
     const minTemp = `${
       forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
     }`;
+    console.log(number);
     console.log(summary);
     console.log(maxTemp);
     console.log(minTemp);

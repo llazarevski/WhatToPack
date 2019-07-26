@@ -43,12 +43,17 @@ h1{
   text-align: center;
 }
 
+select{
+  margin: 0px;
+  font-family: 'Tinos', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
 .form-item{
-  border-radius: 50px;
   background-color:white;
   padding: 2px 5px 2px 5px;
   color:  #204028;
-  /* margin: 5px; */
   font-family: 'Tinos', sans-serif;
   font-weight: 400;
   font-size: 16px;
