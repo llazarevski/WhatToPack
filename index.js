@@ -546,13 +546,13 @@ function displayForecast(forecastResponseJson) {
   const city = cityStateArray[0];
   const state = cityStateArray[1];
   console.log(forecastResponseJson);
+  $(".js-error").addClass('hidden-error');
   $(".js-forecast-container").empty();
   $(".js-forecast-header").empty();
   $(".js-forecast-header").removeClass("header-hidden");
   $('.packListBackground').removeClass('header-hidden');
   $(".js-forecast-header").append(`<h2>5 Day Forecast / ${city}, ${state} </h2>`);
   for (let i = 0; i < forecastResponseJson.DailyForecasts.length; i++) {
-    const number = `${forecastResponseJson.DailyForecasts[i]}`;
     const summary = `${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}`;
     const maxTemp = `${
       forecastResponseJson.DailyForecasts[i].Temperature.Maximum.Value
@@ -560,12 +560,12 @@ function displayForecast(forecastResponseJson) {
     const minTemp = `${
       forecastResponseJson.DailyForecasts[i].Temperature.Minimum.Value
     }`;
-    console.log(number);
+    console.log([i]);
     console.log(summary);
     console.log(maxTemp);
     console.log(minTemp);
     $(".js-forecast-container").removeClass("forecast-hidden");
-    $(".js-forecast-container").append(`<div class='js-dailyWeather weather-'>
+    $(".js-forecast-container").append(`<div class='js-dailyWeather weather-${[i]}'>
       <div class="date">${new Date(forecastResponseJson.DailyForecasts[i].Date).toDateString()}</div><br>
       <div class= "summary">${forecastResponseJson.DailyForecasts[i].Day.LongPhrase}</div>
       <div class="temp"><ul>
@@ -600,13 +600,20 @@ function getForecast(responseJson) {
   fetch(forecastUrl)
     .then(forecastResponse => {
     if (forecastResponse.ok) {
+      updateCSS();
       return forecastResponse.json();
     }
     throw new forecastError(forecastResponse.statustext);
   })
     .then(forecastResponseJson => displayForecast(forecastResponseJson))
     .catch(err => {
-    $(".js-error").text(`Something went wrong: ${err.message}`);
+      $(".js-error").removeClass('hidden-error');
+      if (err == `Cannot read property Key of undefined`){
+        $(".js-error").text(`Oops, we can't find that location. Please try again`);
+      } else {
+        $(".js-error").text(`Oops, something is wrong: Please try again later`);
+        console.log(err.message);
+      };
   });
 };
 
@@ -637,7 +644,13 @@ function getLocationKey(city, state) {
   })
     .then(responseJson => getForecast(responseJson))
     .catch(err => {
-    $(".js-error").text(`Something went wrong: ${err.message}`);
+      $(".js-error").removeClass('hidden-error');
+      if (err == `Cannot read property Key of undefined`){
+        $(".js-error").text(`Oops, we can't find that location. Please try again`);
+      } else {
+        $(".js-error").text(`Oops, something is wrong: Please try again later`);
+        console.log(err.message);
+      };
   });
 };
 
@@ -668,7 +681,7 @@ function watchForm() {
     const city = cityStateArray[0];
     const state = cityStateArray[1];
     getLocationKey(city, state);
-    updateCSS();
+    // updateCSS();
   });
 };
 

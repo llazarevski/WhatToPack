@@ -127,6 +127,26 @@ ul{
   padding: 0px;
   margin-top: 0px;
 }
+
+.weather-0{
+  background-color: #e9fae6;
+}
+
+.weather-1{
+  background-color: #e1eddf;
+}
+
+.weather-2{
+  background-color: #d4ded3;
+}
+
+.weather-3{
+  background-color: #cbd1cb;
+}
+
+.weather-4{
+  background-color: #c2c4c2;
+}
 .temp {
   align-self: flex-end;
 }
@@ -161,7 +181,7 @@ h2{
 .packList{
   color: #204028;
   font-family: 'Tinos', sans-serif;
-  margin-left: 70px;
+  margin-left: 90px;
 
 }
 
@@ -218,6 +238,8 @@ a{
   border-radius: 50px;
   background-color: #204028;
   color: white;
+  margin-bottom: 10px;
+  border: 0;
  }
 
 
@@ -230,5 +252,16 @@ a{
 
  .js-error{
    color: #c4251a;
-   margin: 10px;
+   margin: 0 auto;
+   background-color: white;
+   border: 1px solid #204028;
+   width: 425px;
+   text-align: center;
+   margin-top: 10px;
+   font-family: 'Tinos', sans-serif;
+   border-radius: 50px;
+ }
+
+ .hidden-error{
+  display: none;
  }
