@@ -170,9 +170,9 @@ ul{
 }
 .js-activityList-header{
   color: #204028;
-  text-align: center;
   font-size: 26px;
   display: block;
+  margin: 10px;
 }
 h2{
   display: inline-block;
@@ -181,8 +181,7 @@ h2{
 .packList{
   color: #204028;
   font-family: 'Tinos', sans-serif;
-  margin-left: 90px;
-
+  margin-left: 10px;
 }
 
 .js-pack-list-container{
@@ -269,9 +268,10 @@ a{
  @media screen and (max-width: 570px) {
   .js-forecast-container{
     flex-direction: column;
+    align-content: center;
   }
   .js-dailyWeather {
-    max-width: 150px;
+    min-width: 150px;
   }
 
 }
@@ -284,8 +284,11 @@ a{
   }
 }
 
-@media screen and (max-width: 860px) {
-  .packList {
-    margin-left: 30px;
+@media screen and (max-width: 520px) {
+  h1{
+    font-size: 40px;
+  }
+  .form-item {
+    font-size: 14px;
   }
 }
