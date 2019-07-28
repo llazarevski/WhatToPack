@@ -681,7 +681,6 @@ function watchForm() {
     const city = cityStateArray[0];
     const state = cityStateArray[1];
     getLocationKey(city, state);
-    // updateCSS();
   });
 };
 
