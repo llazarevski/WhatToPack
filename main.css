@@ -266,7 +266,7 @@ a{
   display: none;
  }
 
- @media screen and (min-width: 570) {
+ @media screen and (max-width: 570) {
   .js-forecast-container{
     flex-direction: column;
   }
@@ -275,7 +275,7 @@ a{
   }
 
 }
-@media screen and (min-width: 760) {
+@media screen and (max-width: 760) {
   .js-forecast-header{
     font-size: 20px;
   }
@@ -284,7 +284,7 @@ a{
   }
 }
 
-@media screen and (min-width: 860) {
+@media screen and (max-width: 860) {
   .packList {
     margin-left: 30px;
   }
