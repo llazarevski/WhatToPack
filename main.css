@@ -266,11 +266,22 @@ a{
  .hidden-error{
   display: none;
  }
+ @media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .js-forecast-container{
+    flex-direction: column;
+    align-content: center;
+  }
+  .js-dailyWeather {
+    min-width: 150px;
+  }
+}
+
 
  @media screen and (max-width: 570px) and (-webkit-min-device-pixel-ratio: 2) {
   .js-forecast-container{
     flex-direction: column;
     align-content: center;
+    min-width: 300px;
   }
   .js-dailyWeather {
     min-width: 150px;
