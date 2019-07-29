@@ -267,7 +267,7 @@ a{
   display: none;
  }
 
- @media screen and (max-width: 570px) {
+ @media screen and (max-width: 570px) and (-webkit-min-device-pixel-ratio: 2) {
   .js-forecast-container{
     flex-direction: column;
     align-content: center;
