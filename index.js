@@ -665,7 +665,7 @@ function updateCSS() {
 
 
 function formatCityState(cityState){
-  const cityStateArray = cityState.split(", ");
+  const cityStateArray = cityState.split(/[ ,]+/);
   const city = cityStateArray[0];
   let upperCaseCity = city.charAt(0).toUpperCase() + city.slice(1);
   let state = cityStateArray[1].toUpperCase();

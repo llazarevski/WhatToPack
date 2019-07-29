@@ -10,7 +10,10 @@ body{
   font-family: 'Archivo Black', sans-serif;
   height: 100%;
   margin: 0;
+  padding: 0; 
+  border: 0;
 }
+
 .startContainer {
   display: flex;
   justify-content: center;
