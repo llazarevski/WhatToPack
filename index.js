@@ -658,6 +658,7 @@ function updateCSS() {
   $(".startContainer").addClass("startContainerAfterSubmit").removeClass("startContainer");
   $(".hero").addClass("startContainerAfterSubmit");
   $('h1').addClass('h1AfterSubmit');
+  $('.description').addClass('hidden-description');
   $('.form-item').addClass('formItemAfterSubmit');
   // $('.footer').addClass('footerAfterSubmit').removeClass('footer');
 
@@ -672,6 +673,13 @@ function formatCityState(cityState){
   return([upperCaseCity, state]);
 }
 
+function validateCityState(cityState){
+  if (cityState.match(/.,\s./)= true){
+    getLocationKey(city, state);
+  } else {
+      alert("Please enter city and state in correct format")
+    };
+}
 
 function watchForm() {
   $(".formContainer").submit(event => {
@@ -680,7 +688,8 @@ function watchForm() {
     const cityStateArray = formatCityState(cityState);
     const city = cityStateArray[0];
     const state = cityStateArray[1];
-    getLocationKey(city, state);
+    validateCityState(cityState);
+    // getLocationKey(city, state);
   });
 };
 
