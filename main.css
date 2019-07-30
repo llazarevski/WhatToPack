@@ -44,6 +44,12 @@ h1{
   font-size: 48px;
   color: #204028;
   display: inline-block;
+  margin-bottom: 0;
+}
+
+.description {
+  font-family: 'Tinos', sans-serif;
+  font-size: 16px;
 }
 
 .formContainer{
@@ -241,9 +247,7 @@ h2{
   left: 0;
   bottom: 0;
   width: 100%;
-  color: white;
-  font-size: 16px;
-  font-family: 'Tinos', sans-serif;
+  height: 20px;
 }
 
 a{
@@ -334,7 +338,7 @@ and (-webkit-device-pixel-ratio : 3) {
         -ms-flex-direction: column;
             flex-direction: column;
     -ms-flex-line-pack: center;
-        align-content: center;
+        align-items: center;
   }
   .js-dailyWeather {
     min-width: 150px;

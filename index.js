@@ -413,7 +413,7 @@ function addPackText (){
   $('.js-toDoContainer').empty();
   const toDo = `<section class="js-toDoContainer"><form>
     <label class="js-addToDoLabel">Add Item To Pack List:<br></label>
-    <input type="text" name="js-addToDo" class="js-addToDo">
+    <input type="text" name="js-addToDo" class="js-addToDo" required>
     <input type="submit" value="Add" class="js-add-button">
     </form></section>`
   $('.packList').append(toDo);
@@ -425,7 +425,7 @@ function submitAddToDo (){
           let toDoValue = $('.js-addToDo').val();
           console.log(toDoValue);
           $('.js-addToDo').val('');
-          $(".js-pack-list-container").append(`<li><label class='js-toDoList'>
+          $(".js-pack-list-container").append(`<li class='js-toDoList'><label>
             <input type='checkbox'>
             <span class='checkmark'> ${toDoValue} </span>
           </label></li>`);
@@ -659,7 +659,7 @@ function updateCSS() {
   $(".hero").addClass("startContainerAfterSubmit");
   $('h1').addClass('h1AfterSubmit');
   $('.form-item').addClass('formItemAfterSubmit');
-  $('.footer').addClass('footerAfterSubmit').removeClass('footer');
+  // $('.footer').addClass('footerAfterSubmit').removeClass('footer');
 
 }
 
