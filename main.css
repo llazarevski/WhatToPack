@@ -330,7 +330,8 @@ a{
         align-content: center;
   }
   .js-dailyWeather {
-    min-width: 150px;
+    min-width: 200px;
+    font-size: 18px;
   }
 }
 
@@ -358,6 +359,9 @@ and (-webkit-device-pixel-ratio : 3) {
   .js-dailyWeather {
     min-width: 150px;
   }
+  .js-pack-list-container{
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -365,7 +369,11 @@ and (-webkit-device-pixel-ratio : 3) {
     font-size: 20px;
   }
   .js-dailyWeather {
-    max-width: 100px;
+    max-width: 200px;
+    font-size: 18px;
+  }
+  .js-pack-list-container{
+    font-size: 20px;
   }
 }
 
@@ -374,6 +382,9 @@ and (-webkit-device-pixel-ratio : 3) {
     font-size: 40px;
   }
   .form-item {
+    font-size: 20px;
+  }
+  .js-pack-list-container{
     font-size: 20px;
   }
 }

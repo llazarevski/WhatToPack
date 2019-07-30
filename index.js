@@ -673,13 +673,14 @@ function formatCityState(cityState){
   return([upperCaseCity, state]);
 }
 
-function validateCityState(cityState){
-  if (cityState.match(/.,\s./)= true){
-    getLocationKey(city, state);
-  } else {
-      alert("Please enter city and state in correct format")
-    };
-}
+// function validateCityState(cityState){
+//   let cityState = $(".city-state").val();
+//   if (cityState.test(/.,\s./)== true){
+//     getLocationKey(city, state);
+//   } else {
+//       alert("Please enter city and state in correct format")
+//     };
+// }
 
 function watchForm() {
   $(".formContainer").submit(event => {
@@ -688,7 +689,14 @@ function watchForm() {
     const cityStateArray = formatCityState(cityState);
     const city = cityStateArray[0];
     const state = cityStateArray[1];
-    validateCityState(cityState);
+    let validateCityState = new RegExp(/.,\s./);
+    // validateCityState(cityState);
+    if (validateCityState.test(cityState)== true){
+      console.log(validateCityState.test(cityState));
+      getLocationKey(city, state);
+    } else {
+        alert("Please enter city and state in correct format")
+      };
     // getLocationKey(city, state);
   });
 };
