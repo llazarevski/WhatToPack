@@ -19,7 +19,7 @@
       </div>
     </header>
     <form class="formContainer">
-      <select name="activity" class="form-item activity">
+      <select name="activity" class="form-item activity" aria-label="Activity Search">
         <option value="hiking">Hiking</option>
         <option value="kayaking">Kayaking</option>
         <option value="camping">Camping</option>
@@ -27,7 +27,7 @@
         <option value="biking">Biking</option>
         <option value="rafting">Rafting</option>
       </select>
-      <input type="text" placeholder="City, State" class="city-state form-item" required> 
+      <input type="text" placeholder="City, State" class="city-state form-item" aria-label="Input City and State" required> 
       <input type="submit" value="Go" class="submitForm form-item">
     </form>
   </div>
@@ -49,6 +49,7 @@
     <!-- </div> -->
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="datastore.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
