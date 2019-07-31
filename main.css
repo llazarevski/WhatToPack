@@ -149,8 +149,6 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   text-align: center;
   font-family: 'Tinos', sans-serif;
   -webkit-box-pack: center;
@@ -198,6 +196,7 @@ ul{
 .weather-4{
   background-color: #c2c4c2;
 }
+
 .temp {
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -285,9 +284,16 @@ a{
    margin: 10px;
    margin: 0 auto;
  }
+
+ .topack-Count{
+  font-weight: 700;
+  margin-bottom: 5px;
+ }
+
  .js-addToDo{
    border-radius: 50px;
    border: 1px solid  #204028;
+   text-align: center;
  }
  .js-add-button{
   border-radius: 50px;
@@ -295,14 +301,6 @@ a{
   color: white;
   margin-bottom: 10px;
   border: 0;
- }
-
-
- .footerAfterSubmit{
-   position: static;
-   color:white;
-   font-size: 12px;
-   font-family: 'Tinos', sans-serif;
  }
 
  .js-error{
@@ -362,6 +360,20 @@ and (-webkit-device-pixel-ratio : 3) {
   .js-pack-list-container{
     font-size: 20px;
   }
+  input [type='checkbox']{
+    width: 20px;
+    height: 20px;
+  }
+  .js-toDoContainer{
+    font-size: 20px;
+  }
+
+  .js-addToDo{
+    font-size: 20px;
+  }
+  .js-add-button{
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -369,7 +381,7 @@ and (-webkit-device-pixel-ratio : 3) {
     font-size: 20px;
   }
   .js-dailyWeather {
-    max-width: 200px;
+    max-width: 150px;
     font-size: 18px;
   }
   .js-pack-list-container{
@@ -383,8 +395,14 @@ and (-webkit-device-pixel-ratio : 3) {
   }
   .form-item {
     font-size: 20px;
+    margin-bottom: 5px;
   }
   .js-pack-list-container{
     font-size: 20px;
+  }
+  .js-forecast-container{
+  -ms-flex-direction: column;
+            flex-direction: column;
+            align-items: center;
   }
 }

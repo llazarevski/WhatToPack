@@ -408,15 +408,31 @@ const locationBaseUrl =
 const forecastBaseUrl =
       "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
+function getPackCount(){
+  var packCount = $('.js-pack-list-container li').not('.completed').length;
+  $('.topack-Count').text('You have ' + packCount + ' items left to pack');
+  console.log(packCount);
+} 
+
+function toggleCheckbox(){
+  $('.js-pack-list-container').on('click', '.toggle', function(){
+    $(this).parents('li').toggleClass('completed');
+    getPackCount();
+  });
+};
+     
 
 function addPackText (){
   $('.js-toDoContainer').empty();
-  const toDo = `<section class="js-toDoContainer"><form>
+  const toDo = `<section class="js-toDoContainer">
+  <div class='topack-Count'></div>
+  <form>
     <label class="js-addToDoLabel">Add Item To Pack List:<br></label>
     <input type="text" name="js-addToDo" class="js-addToDo" required>
     <input type="submit" value="Add" class="js-add-button">
     </form></section>`
   $('.packList').append(toDo);
+  getPackCount();
 };
 
 function submitAddToDo (){
@@ -426,11 +442,12 @@ function submitAddToDo (){
           console.log(toDoValue);
           $('.js-addToDo').val('');
           $(".js-pack-list-container").append(`<li class='js-toDoList'><label>
-            <input type='checkbox'>
+            <input type='checkbox' class="toggle">
             <span class='checkmark'> ${toDoValue} </span>
           </label></li>`);
+          getPackCount();
         });
-      }; 
+}; 
 
 function getActivityList(lowestTemp) {
   let activity = $(".activity").val();
@@ -443,81 +460,82 @@ function getActivityList(lowestTemp) {
   if (activity === "hiking" && lowestTemp >= 60) {
     for (let i = 0; i < hikingSummerList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${hikingSummerList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "hiking" && lowestTemp < 60) {
     for (let i = 0; i < hikingWinterList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${hikingWinterList[i]}</span>
         </label></li>`);
     }
   }  else if (activity === "kayaking" && lowestTemp >= 60) {
     for (let i = 0; i < kayakingSummerList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${kayakingSummerList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "kayaking" && lowestTemp < 60) {
     for (let i = 0; i < kayakingWinterList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${kayakingWinterList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "camping" && lowestTemp >= 60) {
     for (let i = 0; i < campingSummerList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${campingSummerList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "camping" && lowestTemp < 60) {
     for (let i = 0; i < campingWinterList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${campingWinterList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "surfing") {
     for (let i = 0; i < surfingList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${surfingList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "biking" && lowestTemp >= 60) {
     for (let i = 0; i < bikingSummerList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${bikingSummerList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "biking" && lowestTemp < 60) {
     for (let i = 0; i < bikingWinterList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${bikingWinterList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "rafting" && lowestTemp >= 60) {
     for (let i = 0; i < raftingSummerList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${raftingSummerList[i]}</span>
         </label></li>`);
     }
   } else if (activity === "rafting" && lowestTemp < 60) {
     for (let i = 0; i < raftingWinterList.length; i++) {
       $(".js-pack-list-container").append(`<li class="js-toDoList"><label>
-        <input type='checkbox'>
+        <input type='checkbox' class="toggle">
         <span class='checkmark'> ${raftingWinterList[i]}</span>
         </label></li>`);
     }
   };
+  getPackCount();
   addPackText();
   watchForm();
 };
@@ -660,8 +678,6 @@ function updateCSS() {
   $('h1').addClass('h1AfterSubmit');
   $('.description').addClass('hidden-description');
   $('.form-item').addClass('formItemAfterSubmit');
-  // $('.footer').addClass('footerAfterSubmit').removeClass('footer');
-
 }
 
 
@@ -673,15 +689,6 @@ function formatCityState(cityState){
   return([upperCaseCity, state]);
 }
 
-// function validateCityState(cityState){
-//   let cityState = $(".city-state").val();
-//   if (cityState.test(/.,\s./)== true){
-//     getLocationKey(city, state);
-//   } else {
-//       alert("Please enter city and state in correct format")
-//     };
-// }
-
 function watchForm() {
   $(".formContainer").submit(event => {
     event.preventDefault();
@@ -690,16 +697,15 @@ function watchForm() {
     const city = cityStateArray[0];
     const state = cityStateArray[1];
     let validateCityState = new RegExp(/.,\s./);
-    // validateCityState(cityState);
     if (validateCityState.test(cityState)== true){
       console.log(validateCityState.test(cityState));
       getLocationKey(city, state);
     } else {
         alert("Please enter city and state in correct format")
       };
-    // getLocationKey(city, state);
   });
 };
 
+$(toggleCheckbox);
 $(watchForm);
 $(submitAddToDo);
